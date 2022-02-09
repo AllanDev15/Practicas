@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claymorphism Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Claymorphism Calculator</h1>
+  <main>
+    <div class="container">
+      <div class="calculator" name="calc">
+        <input type="text" class="value" readonly name="txt">
+        <button class="num clear" data-character='C'></button>
+        <button class="num" data-character='/'></button>
+        <button class="num" data-character='*'></button>
+        <button class="num" data-character='7'></button>
+        <button class="num" data-character='8'></button>
+        <button class="num" data-character='9'></button>
+        <button class="num" data-character='-'></button>
+        <button class="num" data-character='4'></button>
+        <button class="num" data-character='5'></button>
+        <button class="num" data-character='6'></button>
+        <button class="num plus" data-character='+'></button>
+        <button class="num" data-character='1'></button>
+        <button class="num" data-character='2'></button>
+        <button class="num" data-character='3'></button>
+        <button class="num" data-character='.'></button>
+        <button class="num" data-character='0'></button>
+        <button class="num" data-character='00'></button>
+        <button class="num equal" data-character='='></button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const calculator = document.querySelector('.calculator');
+    const digits = document.querySelector('.value');
+
+    calculator.addEventListener('click', (e) => {
+      if (e.target.dataset.character === 'C') {
+        digits.value = '';
+      } else if (e.target.dataset.character === '=') {
+        digits.value = eval(digits.value);
+      } else if (e.target.dataset.character) {
+        digits.value += e.target.dataset.character;
+      }
+    });
+  </script>
+</body>
+
+</html>
